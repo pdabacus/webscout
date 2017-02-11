@@ -5,3 +5,7 @@ var setOrientation = function(i) {
 	clickedOrientation.style.opacity = "1.0";
 	otherOrientation.style.opacity = "0.70";
 }
+
+var scoutMatch = function () {
+	document.write("lololol");
+}
