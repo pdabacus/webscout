@@ -16,10 +16,9 @@ h1 {
 
 #logo {
 	max-width: 50%;
-	//height: auto;
 }
 
-.button, .button2 {
+.button {
 	margin: 10px;
 	border-radius: 5px;
 	cursor: pointer;
@@ -34,28 +33,16 @@ h1 {
 	box-shadow: 2px 2px 10px #AAAAAA;
 }
 
-.button2 {
-	background-color: #AADDDD;
-	color: #336666;
-	transition: all 0.1s ease;
-	border: 1px solid #BBBBBB
-}
-
 .button:hover {
 	color: #FFFFFF;
 	background-color: #44AAFF;
-}
-
-.button2:hover {
-	color: #224444;
-	background-color: #99BBBB;
 }
 
 .button:active {
 	background-color: #50B0FF;
 }
 
-.button div, .button2 div {
+.button div {
 	padding: 20px;
 	margin: 0px auto;
 }
