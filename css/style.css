@@ -20,6 +20,16 @@ h1 {
 
 .orientation-img {
 	max-width: 50%;
+	opacity: 0.5;
+	transition: all 0.25s ease;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+}
+
+.orientation-img:hover {
+	opacity: 0.75;
 }
 
 .button {
@@ -43,9 +53,13 @@ h1 {
 	background-color: #50B0FF;
 }
 
-.button div {
+.button * {
 	padding: 20px;
 	margin: 0px auto;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
 }
 
 .loader {
