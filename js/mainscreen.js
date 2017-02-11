@@ -3,5 +3,5 @@ var setOrientation = function(i) {
 	var otherOrientation = document.getElementById("orientation" + (3-i));
 
 	clickedOrientation.style.opacity = "1.0";
-	otherOrientation.style.opacity = "0.5";
+	otherOrientation.style.opacity = "0.70";
 }
