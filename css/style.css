@@ -18,14 +18,17 @@ h1 {
 	max-width: 50%;
 }
 
+#orientation2 {
+	transform: rotate(180deg);
+}
 .orientation-img {
 	max-width: 50%;
-	opacity: 0.5;
+	opacity: 0.75;
 	transition: all 0.25s ease;
 }
 
 .orientation-img:hover {
-	opacity: 0.75;
+	opacity: 0.85;
 }
 
 .button {
