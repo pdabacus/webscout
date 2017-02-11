@@ -18,6 +18,10 @@ h1 {
 	max-width: 50%;
 }
 
+.logo {
+	max-width: 50%;
+}
+
 .button {
 	margin: 10px;
 	border-radius: 5px;
