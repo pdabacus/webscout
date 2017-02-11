@@ -24,9 +24,6 @@ h1 {
 	cursor: pointer;
 	font-weight: bold;
 	text-align: center;
-}
-
-.button {
 	background-color: #66CC55;
 	color: #225533;
 	transition: all 0.2s ease;
