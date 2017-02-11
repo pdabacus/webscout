@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/download.min.js"></script>
+    <script type="text/javascript" src="js/mainscreen.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -36,13 +37,17 @@
           <!-- orientation 1 -->
           <div class="row">
             <div class="col-xs-12">
-              <img class="orientation-img" src="app/img/field/orientation1.png">
+              <img class="orientation-img"
+                src="app/img/field/orientation1.png"
+                onclick="setOrientation(1)">
             </div>
           </div>
           <!-- orientation 2-->
           <div class="row">
             <div class="col-xs-12">
-              <img class="orientation-img" src="app/img/field/orientation2.png">
+              <img class="orientation-img"
+                src="app/img/field/orientation2.png"
+                onclick="setOrientation(2)">
             </div>
           </div>
           <!-- start scouting button -->
