@@ -11,3 +11,9 @@ var transitionElement = function(elem, html, time) {
 $(document).ready(function() {
 	$(".fadein").fadeIn(500);
 });
+
+var signIn = function() {
+	user = document.getElementById("user").value;
+	pass = document.getElementById("pass").value;
+	alert("user: " + user + "\npass: " + pass);
+}

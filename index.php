@@ -47,19 +47,12 @@ if (!in_array($year, array_keys($years))) {
         <div class="row">
           <div class="col-sm-1 col-md-2"></div>
           <div class="col-xs-12 col-sm-10 col-md-8">
-            <!-- orientation 1 -->
             <img
               id="orientation1"
               class="orientation-img"
               src=<?php echo "\"app/$year/img/field/field.png\""; ?> 
-              onclick="setOrientation(1)">
-          </div>
-          <div class="col-sm-1 col-md-2"></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-1 col-md-2"></div>
-          <div class="col-xs-12 col-sm-10 col-md-8">
-            <!-- orientation 2 -->
+              onclick="setOrientation(1)"/>
+            <br/>
             <img
               id="orientation2"
               class="orientation-img"
@@ -68,6 +61,7 @@ if (!in_array($year, array_keys($years))) {
           </div>
           <div class="col-sm-1 col-md-2"></div>
         </div>
+
         <!-- start scouting button -->
         <div class="row">
           <div class="col-xs-12">
