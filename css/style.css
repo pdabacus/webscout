@@ -23,8 +23,8 @@ h1 {
 }
 .orientation-img {
 	max-width: 50%;
-	opacity: 0.70;
-	transition: all 0.25s ease;
+	opacity: 0.75;
+	transition: opacity 0.25s ease;
 }
 
 .orientation-img:hover {
