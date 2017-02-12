@@ -14,7 +14,7 @@ $years = array(
 
 //sets year to default if invalid year specified
 if (!in_array($year, array_keys($years))) {
-  $year = "2017";
+  $year = date("Y");
 }
 
 ?><!DOCTYPE html>
