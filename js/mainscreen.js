@@ -42,7 +42,8 @@ var scoutMatch = function() {
 }
 
 var startHub = function() {
-
-
-	transitionElement("body", html, 500);
+	$("#body").fadeOut(500);
+	setTimeout(function() {
+		window.location.href = "app/" + year + "/hub/";
+	}, 500);
 }
