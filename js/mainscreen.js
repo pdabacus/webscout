@@ -3,7 +3,7 @@ var main = {
 }
 
 $(document).ready(function() {
-	$("#checkjs").hide();
+	$("#check-js").hide();
 	$(".fadein").fadeIn(500);
 });
 
@@ -32,7 +32,7 @@ var errorHTML = function(msg) {
 var scoutMatch = function() {
 	if (main.orientation < 1) {
 		var error = errorHTML("Must Select An Orientation");
-		$("#scoutMatchError").html(error);
+		$("#scout-match-error").html(error);
 
 	} else {
 		$("#body").fadeOut(500);

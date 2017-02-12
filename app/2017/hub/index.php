@@ -57,6 +57,7 @@
         <div class="row">
           <div class="col-xs-3 col-md-4"></div>
           <div class="col-xs-6 col-md-4">
+            <div id="sign-in-error"></div>
             <div class="button" onclick="signIn()">
               <div>Sign In</div>
             </div>
@@ -74,6 +75,7 @@
           </div>
           <div class="col-xs-3 col-md-4"></div>
         </div>
+        <hr/>
         <!-- footer -->
         <div id="footer"">
           <div>Copyright &copy; <?php echo date("Y"); ?> Swift Creek Robotics</div>

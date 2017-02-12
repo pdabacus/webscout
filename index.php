@@ -41,7 +41,7 @@ if (!in_array($year, array_keys($years))) {
         <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
         <hr/>
         <!-- check if javascript enabled -->
-        <h3 id="checkjs">Please Enable JavaScript</h3>
+        <h3 id="check-js">Please Enable JavaScript</h3>
         <!-- pick orientation -->
         <h3>Choose Orientation</h3>
         <div class="row">
@@ -65,7 +65,7 @@ if (!in_array($year, array_keys($years))) {
         <!-- start scouting button -->
         <div class="row">
           <div class="col-xs-12">
-            <div id="scoutMatchError"></div>
+            <div id="scout-match-error"></div>
             <div class="button" onclick="scoutMatch()">
               <div>Scout Match</div>
             </div>
