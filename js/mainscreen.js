@@ -37,19 +37,12 @@ var scoutMatch = function() {
 		$("#body").fadeOut(500);
 		setTimeout(function() {
 			window.location.href = "app/" + year + "/scout/?orientation=" + main.orientation;
-		}, time);
+		}, 500);
 	}
 }
 
 var startHub = function() {
-	html = '<div class="container-fluid" style="text-align: center;">';
-	html += '<div class="col-sm-1 col-md-2"></div>';
-	html += '<div id="page" class="col-xs-12 col-sm-10 col-md-8">';
-	html += '<h1>Scouting Hub</h1>';
-	html += '<h4></h4>';
-	html += '</div>';
-	html += '<div class="col-sm-1 col-md-2"></div>';
-	html += '</div>';
+
 
 	transitionElement("body", html, 500);
 }
