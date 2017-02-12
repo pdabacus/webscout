@@ -41,21 +41,13 @@ if (!in_array($year, array_keys($years))) {
         <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
         <hr/>
         <!-- check if javascript enabled -->
-        <div id="checkjs" class="row">
-          <div class="col-xs-12">
-            <h3>Please Enable JavaScript</h3>
-          </div>
-        </div>
-        <!-- pick orientation title -->
-        <div class="row">
-          <div class="col-xs-12">
-            <h3>Choose Orientation</h3>
-          </div>
-        </div>
-        <!-- orientation 1 -->
+        <h3 id="checkjs">Please Enable JavaScript</h3>
+        <!-- pick orientation -->
+        <h3>Choose Orientation</h3>
         <div class="row">
           <div class="col-sm-1 col-md-2"></div>
           <div class="col-xs-12 col-sm-10 col-md-8">
+            <!-- orientation 1 -->
             <img
               id="orientation1"
               class="orientation-img"
@@ -64,10 +56,10 @@ if (!in_array($year, array_keys($years))) {
           </div>
           <div class="col-sm-1 col-md-2"></div>
         </div>
-        <!-- orientation 2-->
         <div class="row">
           <div class="col-sm-1 col-md-2"></div>
           <div class="col-xs-12 col-sm-10 col-md-8">
+            <!-- orientation 2 -->
             <img
               id="orientation2"
               class="orientation-img"
@@ -86,7 +78,7 @@ if (!in_array($year, array_keys($years))) {
           </div>
         </div>
         <hr/>
-        <!-- hub-->
+        <!-- start hub button -->
         <div class="row">
           <div class="col-xs-12">
             <div class="button" onclick="startHub()">
