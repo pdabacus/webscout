@@ -1,8 +1,27 @@
-<!DOCTYPE html>
+<?php
+include("php/get_post_utils.php");
+
+//set year to specified year
+if (getpostset("year")) {
+  $year = getpost("year");
+}
+
+//list of valid years
+$years = array(
+  "2016" => "Stronghold",
+  "2017" => "Steamworks",
+);
+
+//sets year to default if invalid year specified
+if (!in_array($year, array_keys($years))) {
+  $year = "2017";
+}
+
+?><!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    <title>Steamworks Scouting</title>
+    <title><?php echo "$years[$year] $year Scouting"; ?></title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mainscreen.js"></script>
@@ -17,7 +36,7 @@
       <!-- main page -->
       <div id="page" class="col-xs-12 col-sm-10 col-md-8">
         <!-- title -->
-        <a href="./"><h1>Steamworks Scouting</h1></a>
+        <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
         <hr>
         <!-- pick orientation title -->
         <div class="row">
@@ -32,7 +51,7 @@
             <img
               id="orientation1"
               class="orientation-img"
-              src="app/img/field/field.png"
+              src="app/<?php echo $year; ?>/img/field/field.png"
               onclick="setOrientation(1)">
           </div>
           <div class="col-sm-1 col-md-2"></div>
@@ -44,7 +63,7 @@
             <img
               id="orientation2"
               class="orientation-img"
-              src="app/img/field/field.png"
+              src="app/<?php echo $year; ?>/img/field/field.png"
               onclick="setOrientation(2)">
           </div>
           <div class="col-sm-1 col-md-2"></div>
@@ -69,7 +88,7 @@
         <hr>
         <!-- footer -->
         <div id="footer"">
-          <div>Copyright &copy; 2017 Swift Creek Robotics</div>
+          <div>Copyright &copy; <?php echo date("Y"); ?> Swift Creek Robotics</div>
         </div>
       </div>
       <!-- right spacer -->
