@@ -11,11 +11,12 @@ var setOrientation = function(i) {
 }
 
 var scoutMatch = function() {
-	var body = document.getElementById("body");
-	$("#body").fadeOut(1000);
+	var body = $("#body");
+
+	body.fadeOut(500);
 	setTimeout(function() {
-		body.innerHTML = "<p>orientation" + orientation + "</p>";
-		$("#body").fadeIn(1000);
+		body.html = "<p>orientation" + orientation + "</p>";
+		body.fadeIn(500);
 	},1000);
 	
 
