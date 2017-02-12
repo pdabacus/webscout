@@ -39,7 +39,7 @@ if (!in_array($year, array_keys($years))) {
       <div id="page" class="col-xs-12 col-sm-10 col-md-8">
         <!-- title -->
         <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
-        <hr>
+        <hr/>
         <!-- check if javascript enabled -->
         <div id="checkjs" class="row">
           <div class="col-xs-12">
@@ -85,7 +85,7 @@ if (!in_array($year, array_keys($years))) {
             </div>
           </div>
         </div>
-        <hr>
+        <hr/>
         <!-- hub-->
         <div class="row">
           <div class="col-xs-12">
@@ -94,7 +94,7 @@ if (!in_array($year, array_keys($years))) {
             </div>
           </div>
         </div>
-        <hr>
+        <hr/>
         <!-- footer -->
         <div id="footer"">
           <div>Copyright &copy; <?php echo date("Y"); ?> Swift Creek Robotics</div>
