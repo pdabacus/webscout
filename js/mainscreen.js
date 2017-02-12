@@ -12,12 +12,14 @@ var setOrientation = function(i) {
 
 var scoutMatch = function() {
 	var body = $("#body");
+	var time = 500;
 
-	body.fadeOut(500);
+	body.fadeOut(time);
+
 	setTimeout(function() {
-		body.html = "<p>orientation" + orientation + "</p>";
-		body.fadeIn(500);
-	},1000);
+		body.html("<p>orientation" + orientation + "</p>");
+		body.fadeIn(time);
+	}, time);
 	
 
 }
