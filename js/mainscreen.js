@@ -24,13 +24,13 @@ var errorHTML = function(msg) {
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }
 
-var transitionBody = function(html, time) {
-		var body = $("#body");
+var transitionElement = function(elem, html, time) {
+		var el = $("#" + elem);
 
-		body.fadeOut(time);
+		el.fadeOut(time);
 		setTimeout(function() {
-			body.html(html);
-			body.fadeIn(time);
+			el.html(html);
+			el.fadeIn(time);
 		}, time);
 
 }
@@ -56,7 +56,7 @@ var scoutMatch = function() {
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '</div>';
 
-		transitionBody(html, 500);
+		transitionElement("body", html, 500);
 	}
 
 }
@@ -71,5 +71,5 @@ var startHub = function() {
 	html += '<div class="col-sm-1 col-md-2"></div>';
 	html += '</div>';
 
-	transitionBody(html, 500);
+	transitionElement("body", html, 500);
 }
