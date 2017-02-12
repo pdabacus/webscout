@@ -36,7 +36,7 @@ if (!in_array($year, array_keys($years))) {
       <!-- left spacer-->
       <div class="col-sm-1 col-md-2"></div>
       <!-- main page -->
-      <div id="page" class="col-xs-12 col-sm-10 col-md-8">
+      <div id="page" class="fadein col-xs-12 col-sm-10 col-md-8">
         <!-- title -->
         <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
         <hr/>

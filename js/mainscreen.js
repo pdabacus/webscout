@@ -4,6 +4,7 @@ var main = {
 
 $(document).ready(function() {
 	$("#checkjs").hide();
+	$(".fadein").fadeIn(500);
 });
 
 var setOrientation = function(i) {
