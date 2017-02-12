@@ -1,5 +1,4 @@
 var orientation = 1;
-var page = document.getElementById("page");
 
 var setOrientation = function(i) {
 	orientation = i;
@@ -12,5 +11,6 @@ var setOrientation = function(i) {
 }
 
 var scoutMatch = function() {
-	page.innerHTML = "<p>asdf</p>";
+	var page = document.getElementById("page");
+	page.innerHTML = "<p>orientation" + orientation + "</p>";
 }
