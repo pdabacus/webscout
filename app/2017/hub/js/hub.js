@@ -14,6 +14,6 @@ $(document).ready(function() {
 
 var signIn = function() {
 	user = document.getElementById("user").value;
-	pass = document.getElementById("pass").value;
-	alert("user: " + user + "\npass: " + pass);
+	pass = md5(document.getElementById("pass").value);
+
 }

@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body id="body">
+
+  <div class="">
+
+  </div>
+
     <div class="container-fluid" style="text-align: center;">
       <!-- left spacer -->
       <div class="col-sm-1 col-md-2"></div>
