@@ -13,6 +13,7 @@ var setOrientation = function(i) {
 var scoutMatch = function() {
 	var body = document.getElementById("body");
 	$("#body").fadeOut(1000);
+	setTimeout(null,1000);
 	body.innerHTML = "<p>orientation" + orientation + "</p>";
 	$("#body").fadeIn(1000);
 
