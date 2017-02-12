@@ -9,6 +9,10 @@ body {
 	box-shadow: 3px 5px 20px #AAAAAA;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 h1 {
 	margin: 30px auto;
 	color: #555577;
