@@ -2,6 +2,10 @@ var main = {
 	orientation: 0
 }
 
+$(document).ready(function() {
+	$("#checkjs").hide();
+});
+
 var setOrientation = function(i) {
 	main.orientation = i;
 
@@ -24,41 +28,17 @@ var errorHTML = function(msg) {
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }
 
-var transitionElement = function(elem, html, time) {
-		var el = $("#" + elem);
-
-		el.fadeOut(time);
-		setTimeout(function() {
-			el.html(html);
-			el.fadeIn(time);
-		}, time);
-
-}
-
 var scoutMatch = function() {
-
-	var html = "";
-
 	if (main.orientation < 1) {
-		html = errorHTML("Must Select An Orientation");
-		html += '<div class="button" onclick="scoutMatch()">';	
-		html += '<div>Scout Match</div>';
-		html += '</div>';
-
-		$("#scoutMatch").html(html);
+		var error = errorHTML("Must Select An Orientation");
+		$("#scoutMatchError").html(error);
 
 	} else {
-		html = '<div class="container-fluid" style="text-align: center;">';
-		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
-		html += '<div class="col-xs-10 col-sm-8 col-md-6" style="margin: 40px auto">';
-		html += '<h1>Orientation ' + main.orientation + ' Selected</h1>';
-		html += '</div>';
-		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
-		html += '</div>';
-
-		transitionElement("body", html, 500);
+		$("#body").fadeOut(500);
+		setTimeout(function() {
+			window.location.href = "app/" + year + "/scout/?orientation=" + main.orientation;
+		}, time);
 	}
-
 }
 
 var startHub = function() {
