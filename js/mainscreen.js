@@ -5,8 +5,6 @@ var main = {
 var setOrientation = function(i) {
 	main.orientation = i;
 
-	alert("orientation: " + main.orientation + "\ni: " + i);
-
 	var clickedOrientation = $("#orientation" + i);
 	var otherOrientation = $("#orientation" + (3-i));
 
@@ -48,7 +46,7 @@ var scoutMatch = function() {
 		html += '</div>';
 
 		$("#scoutMatch").html(html);
-		
+
 	} else {
 		html = '<div class="container-fluid" style="text-align: center;">';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
