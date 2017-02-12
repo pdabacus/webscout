@@ -51,7 +51,7 @@ var scoutMatch = function() {
 		html = '<div class="container-fluid" style="text-align: center;">';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '<div class="col-xs-10 col-sm-8 col-md-6" style="margin: 40px auto">';
-		html += '<h2>Orientation ' + main.orientation + ' Selected</h2>';
+		html += '<h1>Orientation ' + main.orientation + ' Selected</h1>';
 		html += '</div>';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '</div>';
@@ -59,4 +59,17 @@ var scoutMatch = function() {
 		transitionBody(html, 500);
 	}
 
+}
+
+var startHub = function() {
+	html = '<div class="container-fluid" style="text-align: center;">';
+	html += '<div class="col-sm-1 col-md-2"></div>';
+	html += '<div id="page" class="col-xs-12 col-sm-10 col-md-8">';
+	html += '<h1>Scouting Hub</h1>';
+	html += '<h4></h4>';
+	html += '</div>';
+	html += '<div class="col-sm-1 col-md-2"></div>';
+	html += '</div>';
+
+	transitionBody(html, 500);
 }

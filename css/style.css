@@ -22,7 +22,7 @@ h1 {
 	transform: rotate(180deg);
 }
 .orientation-img {
-	max-width: 50%;
+	max-width: 100%;
 	opacity: 0.75;
 	transition: opacity 0.25s ease;
 }
