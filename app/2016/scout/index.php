@@ -10,7 +10,7 @@ if (getpostset("orientation")) {
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    <title>Steamworks 2017 Scouting</title>
+    <title>Stronghold 2016 Scouting</title>
     <script type="text/javascript" src="../../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/scout.js"></script>

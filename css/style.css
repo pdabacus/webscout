@@ -2,6 +2,10 @@ body {
 	background-color: #EEFFFF;
 }
 
+.fadein {
+	display: none;
+}
+
 #page {
 	margin: 30px auto;
 	background-color: #F7FFFF;
