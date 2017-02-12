@@ -46,7 +46,9 @@ var scoutMatch = function() {
 		html += '<div class="button" onclick="scoutMatch()">';	
 		html += '<div>Scout Match</div>';
 		html += '</div>';
+
 		$("#scoutMatch").html(html);
+		
 	} else {
 		html = '<div class="container-fluid" style="text-align: center;">';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
