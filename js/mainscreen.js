@@ -1,7 +1,11 @@
-var orientation = 0;
+var main = {
+	orientation: 0
+}
 
 var setOrientation = function(i) {
-	orientation = i;
+	main.orientation = i;
+
+	alert("orientation: " + main.orientation + "\ni: " + i);
 
 	var clickedOrientation = $("#orientation" + i);
 	var otherOrientation = $("#orientation" + (3-i));
@@ -37,7 +41,7 @@ var scoutMatch = function() {
 
 	var html = "";
 
-	if (orientation < 1) {
+	if (main.orientation < 1) {
 		html = errorHTML("Must Select An Orientation");
 		html += '<div class="button" onclick="scoutMatch()">';	
 		html += '<div>Scout Match</div>';
@@ -47,7 +51,7 @@ var scoutMatch = function() {
 		html = '<div class="container-fluid" style="text-align: center;">';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '<div class="col-xs-10 col-sm-8 col-md-6" style="margin: 40px auto">';
-		html += '<h2>Orientation ' + orientation + ' Selected</h2>';
+		html += '<h2>Orientation ' + main.orientation + ' Selected</h2>';
 		html += '</div>';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '</div>';
