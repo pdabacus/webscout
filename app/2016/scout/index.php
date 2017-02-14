@@ -1,16 +1,11 @@
 <?php
 include("../../../php/get_post_utils.php");
 
-$year = "2016";
 $orientation = "1";
 if (getpostset("orientation")) {
   $orientation = getpost("orientation");
 }
-include("../../../php/header.php");
-
-/*
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
@@ -21,9 +16,6 @@ include("../../../php/header.php");
     <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">
   </head>
-<?php
-*/
-?>
   <body id="body">
   <script type="text/javascript">
     var main = {
