@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 //checks if either the get or post variable is set
 function getpostset($var) {
