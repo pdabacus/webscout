@@ -16,8 +16,8 @@ $(document).ready(function() {
 var loadForm = function() {
 	$("#body").fadeOut(500);
 	setTimeout(function() {
-
-		var html = '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
+		var html = '<div class="container-fluid" style="text-align: center;">';
+		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
 		html += '<div class="col-xs-10 col-sm-8 col-md-6" style="margin: 40px auto">';
 
 		html += "<h2>Team " + main.team + " Scouting:</h2>";
@@ -27,6 +27,7 @@ var loadForm = function() {
 
 		html += '</div>';
 		html += '<div class="col-xs-1 col-sm-2 col-md-3"></div>';
+		html += '</div>';
 
 		$("#body").html(html);
 		$("#body").fadeIn(500);
