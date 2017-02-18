@@ -32,6 +32,30 @@ if (!in_array($year, array_keys($years))) {
     var year = <?php echo "\"$year\""; ?>;
     var years = <?php echo json_encode($years); ?>;
   </script>
+
+    <!-- select team and match modal -->
+    <div
+      id="select-match-modal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="Select Match">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select Match</h4>
+          </div>
+          <div class="modal-body container-fluid">
+            <div class="match" onclick="scoutMatch()">CLICK ME</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container-fluid">
       <!-- left spacer-->
       <div class="col-sm-1 col-md-2"></div>
@@ -66,7 +90,7 @@ if (!in_array($year, array_keys($years))) {
         <div class="row">
           <div class="col-xs-12">
             <div id="scout-match-error"></div>
-            <div class="button" onclick="scoutMatch()">
+            <div class="button" data-toggle="modal" data-target="#select-match-modal">
               <div>Scout Match</div>
             </div>
           </div>
