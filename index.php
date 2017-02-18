@@ -48,7 +48,7 @@ if (!in_array($year, array_keys($years))) {
             <h4 class="modal-title">Select Match</h4>
           </div>
           <div id="select-match-modal-content" class="modal-body container-fluid">
-            <div class="match" onclick="scoutMatch()">CLICK ME</div>
+            <div class="loader"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" onclick="findMatch()">Refresh</button>

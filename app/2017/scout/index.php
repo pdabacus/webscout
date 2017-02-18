@@ -1,12 +1,52 @@
 <?php
 include("../../../php/get_post_utils.php");
 
+//$orientation
 if (getpostset("orientation")) {
   $orientation = getpost("orientation");
 }
-
 if (!in_array($orientation, array("1","2"))){
   $orientation = "1";
+}
+
+//$team
+if (getpostset("team")) {
+  $team = getpost("team");
+}
+if (count($team) > 6){
+  $team = "4828";
+}
+
+//$matchType
+if (getpostset("matchType")) {
+  $matchType = getpost("matchType");
+}
+if (!in_array($matchType, array("qual","elim"))){
+  $matchType = "4828";
+}
+
+//$matchNumber
+if (getpostset("matchNumber")) {
+  $matchNumber = getpost("matchNumber");
+}
+if (count($team) > 4){
+  $matchNumber = "1";
+}
+
+//$alliance
+if (getpostset("alliance")) {
+  $alliance = getpost("alliance");
+}
+if (!in_array($alliance, array("red","blue"))){
+  $alliance = "red";
+}
+
+//$robot
+if (getpostset("robot")) {
+  $robot = getpost("robot");
+}
+if (count($robot) > 6){
+  $robot = "robot";
 }
 
 ?><!DOCTYPE html>
@@ -23,7 +63,12 @@ if (!in_array($orientation, array("1","2"))){
   <body id="body">
   <script type="text/javascript">
     var main = {
-    	orientation: <?php echo "$orientation"; ?> 
+      orientation: <?php echo "$orientation"; ?>,
+      team: <?php echo "$team"; ?>,
+      matchType: <?php echo "\"$matchType\""; ?>,
+      matchNumber: <?php echo "$matchNumber"; ?>,
+      alliance: <?php echo "\"$alliance\""; ?>,
+      robot: <?php echo "$robot"; ?> 
     }
   </script>
     <div class="container-fluid" style="text-align: center;">
