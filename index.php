@@ -51,6 +51,7 @@ if (!in_array($year, array_keys($years))) {
             <div class="match" onclick="scoutMatch()">CLICK ME</div>
           </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="findMatch()">Refresh</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
           </div>
         </div>

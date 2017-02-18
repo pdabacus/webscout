@@ -29,6 +29,10 @@ var errorHTML = function(msg) {
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }
 
+var capitalize = function(str) {
+	return str.substring(0,1).toUpperCase() + str.substring(1);
+}
+
 var findMatch = function() {
 	if (main.orientation < 1) {
 		var error = errorHTML("Must Select An Orientation");
@@ -39,7 +43,7 @@ var findMatch = function() {
 		$("#select-match-modal-content").html('<div class="loader"></div>');
 
 // uncomment to delay GET by 1 milliseconds
-setTimeout(function() {
+//setTimeout(function() {
 
 	$.get("php/get-matches.php", function(data) {
 		var html = "";
@@ -60,27 +64,27 @@ setTimeout(function() {
 						matchNumber = Object.keys(matches[team][matchType]).reverse()[j];
 
 						html += '<div class="col-xs-6 col-md-4">';
-						html += '<h3>' + matchType.substring(0,1).toUpperCase();
-						html += matchType.substring(1) + ' ' + matchNumber + '</h3>';
+
+						html += '<h3>' + capitalize(matchType) + ' ' + matchNumber + '</h3>';
+
 						html += '<div class="match container-fluid" style="padding:0px">';
 
-						html += '<div class="red col-xs-6">';
-						html += '<h4>Red</h4>';
-						for (var k = 1; k <= 3; k++) {
-							html += "<p>";
-							html += matches[team][matchType][matchNumber]["red"][k];
-							html += "</p>";
+						for (var alliance in matches[team][matchType][matchNumber]) {
+							html += '<div class="' + alliance + ' col-xs-6">';
+							html += '<h4>' + capitalize(alliance) + '</h4>';
+							for (var k = 1; k <= 3; k++) {
+								html += '<p onclick="scoutMatch(';
+								html += team + ',';
+								html += "'" + matchType + "',";
+								html += matchNumber + ',';
+								html += "'" + alliance + "',";
+								html += matches[team][matchType][matchNumber][alliance][k];
+								html += ')">';
+								html += matches[team][matchType][matchNumber][alliance][k];
+								html += '</p>';
+							}
+							html += '</div>';
 						}
-						html += '</div>';
-
-						html += '<div class="blue col-xs-6">';
-						html += '<h4>Blue</h4>';
-						for (var k = 1; k <= 3; k++) {
-							html += "<p>";
-							html += matches[team][matchType][matchNumber]["blue"][k];
-							html += "<br/>";
-						}
-						html += '</div>';
 
 						html += '</div>';
 						html += '</div>';
@@ -99,16 +103,21 @@ setTimeout(function() {
 	});
 
 // uncomment to delay GET by 1000 milliseconds
-}, 1000);
-
+//}, 1000);
 
 	}
 }
 
-var scoutMatch = function() {
+var scoutMatch = function(team, matchType, matchNumber, alliance, robot) {
 	$("#body").fadeOut(500);
 	setTimeout(function() {
-		window.location.href = "app/" + year + "/scout/?orientation=" + main.orientation;
+		var parameters = "orientation=" + main.orientation + "&";
+		parameters += "team=" + team + "&";
+		parameters += "matchType=" + matchType + "&";
+		parameters += "matchNumber=" + matchNumber + "&";
+		parameters += "alliance=" + alliance + "&";
+		parameters += "robot=" + robot;
+		window.location.href = "app/" + year + "/scout/?" + parameters;
 	}, 500);
 }
 

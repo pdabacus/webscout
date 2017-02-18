@@ -1,9 +1,12 @@
 <?php
 include("../../../php/get_post_utils.php");
 
-$orientation = "1";
 if (getpostset("orientation")) {
   $orientation = getpost("orientation");
+}
+
+if (!in_array($orientation, array("1","2"))){
+  $orientation = "1";
 }
 
 ?><!DOCTYPE html>
