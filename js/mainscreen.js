@@ -43,23 +43,31 @@ setTimeout(function() {
 
 	$.get("php/get-matches.php", function(data) {
 		var html = "";
+		var matchType = "";
+		var matchNumber = 0;
 
 		if (data != null && data.length > 10) {
-			var matches = JSON.parse(data);
+			matches = JSON.parse(data);
 
 			for (var team in matches) {
 				html += '<h2>Team ' + team + '</h2>';
 				html += '<div class="row">';
 
-				for (var matchType in matches[team]) {
-					for (var matchNumber in matches[team][matchType]) {
+
+				//for (var i = 0; i < Object.keys(matches[team]).length; i++) {
+					matchType = Object.keys(matches[team]).reverse()[i];
+
+					for (var j = 0; j < Object.keys(matches[team][matchType]).length; j++) {
+						matchNumber = Object.keys(matches[team][matchType]).reverse()[j];
+
 						html += '<div class="col-xs-6 col-md-4">';
-						html += '<h3>' + matchType.toUpperCase() + ' ' + matchNumber + '</h3>'
+						html += '<h3>' + matchType.substring(0,1).toUpperCase();
+						html += matchType.substring(1) + ' ' + matchNumber + '</h3>';
 						html += '<div class="match container-fluid" style="padding:0px">';
 
 						html += '<div class="red col-xs-6">';
 						html += '<h4>Red</h4>';
-						for (var i = 1; i <= 3; i++) {
+						for (var k = 1; k <= 3; k++) {
 							html += "<p>";
 							html += matches[team][matchType][matchNumber]["red"][i];
 							html += "</p>";
@@ -68,7 +76,7 @@ setTimeout(function() {
 
 						html += '<div class="blue col-xs-6">';
 						html += '<h4>Blue</h4>';
-						for (var i = 1; i <= 3; i++) {
+						for (var k = 1; k <= 3; k++) {
 							html += "<p>";
 							html += matches[team][matchType][matchNumber]["blue"][i];
 							html += "<br/>";
@@ -81,7 +89,6 @@ setTimeout(function() {
 				}
 
 				html += '</div>';
-				html += '<hr/>';
 			}
 
 		} else {
