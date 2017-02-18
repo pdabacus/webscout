@@ -53,8 +53,7 @@ setTimeout(function() {
 				html += '<h2>Team ' + team + '</h2>';
 				html += '<div class="row">';
 
-				for (var matchType in {"elim", "qual"}) {
-				//for (var i = 0; i < Object.keys(matches[team]).length; i++) {
+				for (var i = 0; i < Object.keys(matches[team]).length; i++) {
 					matchType = Object.keys(matches[team]).reverse()[i];
 
 					for (var j = 0; j < Object.keys(matches[team][matchType]).length; j++) {
@@ -69,7 +68,7 @@ setTimeout(function() {
 						html += '<h4>Red</h4>';
 						for (var k = 1; k <= 3; k++) {
 							html += "<p>";
-							html += matches[team][matchType][matchNumber]["red"][i];
+							html += matches[team][matchType][matchNumber]["red"][k];
 							html += "</p>";
 						}
 						html += '</div>';
@@ -78,7 +77,7 @@ setTimeout(function() {
 						html += '<h4>Blue</h4>';
 						for (var k = 1; k <= 3; k++) {
 							html += "<p>";
-							html += matches[team][matchType][matchNumber]["blue"][i];
+							html += matches[team][matchType][matchNumber]["blue"][k];
 							html += "<br/>";
 						}
 						html += '</div>';
