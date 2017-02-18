@@ -53,7 +53,7 @@ setTimeout(function() {
 				html += '<h2>Team ' + team + '</h2>';
 				html += '<div class="row">';
 
-
+				for (var matchType in {"elim", "qual"}) {
 				//for (var i = 0; i < Object.keys(matches[team]).length; i++) {
 					matchType = Object.keys(matches[team]).reverse()[i];
 
