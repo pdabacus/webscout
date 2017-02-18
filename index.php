@@ -23,6 +23,7 @@ if (!in_array($year, array_keys($years))) {
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
     <title><?php echo "$years[$year] $year Scouting"; ?></title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mainscreen.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -90,7 +91,7 @@ if (!in_array($year, array_keys($years))) {
         <div class="row">
           <div class="col-xs-12">
             <div id="scout-match-error"></div>
-            <div class="button" data-toggle="modal" data-target="#select-match-modal">
+            <div class="button" onclick="findMatch()">
               <div>Scout Match</div>
             </div>
           </div>

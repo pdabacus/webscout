@@ -29,17 +29,21 @@ var errorHTML = function(msg) {
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }
 
-var scoutMatch = function() {
+var findMatch = function() {
 	if (main.orientation < 1) {
 		var error = errorHTML("Must Select An Orientation");
 		$("#scout-match-error").html(error);
 
 	} else {
-		$("#body").fadeOut(500);
-		setTimeout(function() {
-			window.location.href = "app/" + year + "/scout/?orientation=" + main.orientation;
-		}, 500);
+		$('#select-match-modal').modal('show');
 	}
+}
+
+var scoutMatch = function() {
+	$("#body").fadeOut(500);
+	setTimeout(function() {
+		window.location.href = "app/" + year + "/scout/?orientation=" + main.orientation;
+	}, 500);
 }
 
 var startHub = function() {
