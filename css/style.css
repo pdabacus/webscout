@@ -13,6 +13,10 @@ body {
 	box-shadow: 3px 5px 20px #AAAAAA;
 }
 
+#select-match-modal-content {
+	text-align: center;
+}
+
 a:hover {
 	text-decoration: none;
 }
@@ -37,6 +41,29 @@ h1 {
 
 .orientation-img:hover {
 	opacity: 0.90;
+}
+
+.match {
+	margin: 10px;
+	border-radius: 5px;
+	background-color: #FAFAFA;
+	text-align: center;
+	border: 1px solid #AAAAAA;
+}
+
+.match .red {
+	padding: 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: #FFF0F0;
+}
+
+.match .blue {
+	padding: 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #F0FFFF;
+
 }
 
 .button {
