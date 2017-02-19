@@ -56,6 +56,7 @@ if (count($robot) > 6){
     <title>Steamworks 2017 Scouting</title>
     <script type="text/javascript" src="../../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../js/utils.js"></script>
     <script type="text/javascript" src="js/scout.js"></script>
     <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">

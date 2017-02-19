@@ -25,14 +25,6 @@ var setOrientation = function(i) {
 	});
 }
 
-var errorHTML = function(msg) {
-	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
-}
-
-var capitalize = function(str) {
-	return str.substring(0,1).toUpperCase() + str.substring(1);
-}
-
 var findMatch = function() {
 	if (main.orientation < 1) {
 		var error = errorHTML("Must Select An Orientation");

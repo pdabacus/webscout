@@ -24,6 +24,7 @@ if (!in_array($year, array_keys($years))) {
     <title><?php echo "$years[$year] $year Scouting"; ?></title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/mainscreen.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
