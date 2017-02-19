@@ -11,7 +11,6 @@ if (getpostset("year")) {
 $year = checkYear($year);
 
 
-
 //creates JSON string for all matches
 function makeJSON() {
 

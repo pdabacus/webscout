@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import json
 
 def turner(arg, ret1, ret2):
@@ -111,19 +112,21 @@ class Match:
 
 	def setRobot(self, color, number, rob):
 		if color == "red":
-			self.__red[number] = rob
+			self.__red[str(number)] = rob
 		elif color == "blue":
-			self.__blue[number] = rob
+			self.__blue[str(number)] = rob
 
 class Record:
 	__team = 0
 	__qual = {}
 	__elim = {}
+	__fileLocation = "record.json"
 
-	def __init__(self, t):
+	def __init__(self, t, f="record.json"):
 		self.__team = t
 		self.__qual = {}
 		self.__elim = {}
+		self.__fileName = f
 
 	@staticmethod
 	def decodeJSON(team, data):
@@ -138,11 +141,17 @@ class Record:
 		return r
 
 	@staticmethod
-	def open(team, file):
-		fileLocation = str(team) +"/" + file
-		data = open(fileLocation, "r", encoding="utf-8", newline="").read()
+	def open(team, fileName="record.json"):
+		data = ""
+		fileLocation = os.path.join(str(team), fileName)
+		if os.path.isfile(fileLocation):
+			file = open(fileLocation, "r", encoding="utf-8", newline="")
+			data = file.read()
+			file.close()
 
-		r = Record(team)
+		r = Record(team, fileName)
+		if len(data) < 10:
+			return r
 		if type(data) == type(""):
 			data = json.loads(data)
 		if len(data) < 2:
@@ -183,9 +192,9 @@ class Record:
 			self.__elim[str(m.getNum())] = m
 
 	def removeMatch(self, t, i):
-		if t == "qual":
+		if t == "qual" and str(i) in self.__qual:
 			self.__qual.pop(str(i))
-		elif t == "elim":
+		elif t == "elim" and str(i) in self.__elim:
 			self.__elim.pop(str(i))
 
 	def getMatch(self, t, i):
@@ -194,9 +203,11 @@ class Record:
 		elif t == "elim":
 			return self.__elim[str(i)]
 
-	def save(self, loc):
-
-
-
-r = Record.open(4828, "worlds.json")
+	def save(self):
+		if not os.path.exists(str(self.__team)):
+			os.mkdir(str(self.__team))
+		fileLocation = os.path.join(str(self.__team), self.__fileName)
+		file = open(fileLocation, "w+", encoding="utf-8", newline="")
+		file.write(str(self))
+		file.close()
 
