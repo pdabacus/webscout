@@ -1,5 +1,17 @@
 <?php
 
+include("get_post_utils.php");
+include("years.php");
+
+//set year to specified year
+if (getpostset("year")) {
+  $year = getpost("year");
+}
+
+$year = checkYear($year);
+
+
+
 //creates JSON string for all matches
 function makeJSON() {
 

@@ -37,7 +37,7 @@ var findMatch = function() {
 // uncomment to delay GET by 1 milliseconds
 //setTimeout(function() {
 
-	$.get("php/get-matches.php", function(data) {
+	$.get("php/get-matches.php?year=" + year, function(data) {
 		var html = "";
 		var matchType = "";
 		var matchNumber = 0;

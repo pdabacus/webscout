@@ -1,27 +1,19 @@
 <?php
 include("php/get_post_utils.php");
+include("php/years.php");
 
 //set year to specified year
 if (getpostset("year")) {
   $year = getpost("year");
 }
 
-//list of valid years
-$years = array(
-  "2016" => "Stronghold",
-  "2017" => "Steamworks",
-);
-
-//sets year to default if invalid year specified
-if (!in_array($year, array_keys($years))) {
-  $year = date("Y");
-}
+$year = checkYear($year);
 
 ?><!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    <title><?php echo "$years[$year] $year Scouting"; ?></title>
+    <title><?php echo getGame($year) . " $year Scouting"; ?></title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
@@ -32,7 +24,6 @@ if (!in_array($year, array_keys($years))) {
   <body id="body">
   <script type="text/javascript">
     var year = <?php echo "\"$year\""; ?>;
-    var years = <?php echo json_encode($years); ?>;
   </script>
 
     <!-- select team and match modal -->
@@ -65,7 +56,7 @@ if (!in_array($year, array_keys($years))) {
       <!-- main page -->
       <div id="page" class="fadein col-xs-12 col-sm-10 col-md-8">
         <!-- title -->
-        <a href="./"><h1><?php echo "$years[$year] $year Scouting"; ?></h1></a>
+        <a href="./"><h1><?php echo getGame($year) . " $year Scouting"; ?></h1></a>
         <hr/>
         <!-- check if javascript enabled -->
         <h3 id="check-js">Please Enable JavaScript</h3>
