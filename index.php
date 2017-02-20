@@ -3,6 +3,8 @@ include("php/get_post_utils.php");
 include("php/years.php");
 
 //set year to specified year
+$year = date("Y");
+
 if (getpostset("year")) {
   $year = getpost("year");
 }
