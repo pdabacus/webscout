@@ -117,20 +117,20 @@ class Match:
 			self.__blue[str(number)] = rob
 
 class Record:
-	__team = 0
+	__team = "0"
 	__qual = {}
 	__elim = {}
 	__fileLocation = "record.json"
 
 	def __init__(self, t, f="record.json"):
-		self.__team = t
+		self.__team = str(t)
 		self.__qual = {}
 		self.__elim = {}
 		self.__fileName = f
 
 	@staticmethod
-	def decodeJSON(team, data):
-		r = Record(team)
+	def decodeJSON(team, data, fileName="record.json"):
+		r = Record(team, fileName)
 		if type(data) == type(""):
 			data = json.loads(data)
 		if len(data) < 2:
@@ -204,9 +204,9 @@ class Record:
 			return self.__elim[str(i)]
 
 	def save(self):
-		if not os.path.exists(str(self.__team)):
-			os.mkdir(str(self.__team))
-		fileLocation = os.path.join(str(self.__team), self.__fileName)
+		if not os.path.exists(self.__team):
+			os.mkdir(self.__team)
+		fileLocation = os.path.join(self.__team, self.__fileName)
 		file = open(fileLocation, "w+", encoding="utf-8", newline="")
 		file.write(str(self))
 		file.close()

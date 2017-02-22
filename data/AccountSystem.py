@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from Record import *
+
 import os
 import csv
 
@@ -23,22 +25,27 @@ class User:
 	def getName(self):
 		return self.__name
 
+	def getFile(self, f):
+		if f in self.__files:
+			return str(Record.open(self.__name, f))
+
 	def getFiles(self):
 		return self.__files
 
 	def checkPass(self, p):
 		return p == self.__pass
 
-	def setPass(self, old, new):
-		if checkPass(old):
-			self.__pass = new
+	def setPass(self, p):
+		self.__pass = p
 
 	def addFile(self, f):
 		self.__files = sorted(set(self.__files + [f]))
+		Record.open(self.__name, f).save()
 
 	def removeFile(self, f):
 		if f in self.__files:
 			self.__files.pop(self.__files.index(f))
+			os.remove(os.path.join(str(self.__name), f))
 
 class AccountSystem:
 	__users = {}
@@ -78,7 +85,9 @@ class AccountSystem:
 			self.__users.pop(str(name))
 
 	def getUser(self, name):
-		return self.__users[str(name)]
+		if str(name) in self.__users:
+			return self.__users[str(name)]
+		return None
 
 	def save(self):
 		file = open(self.__passwd, "w+", encoding="utf-8", newline="")
