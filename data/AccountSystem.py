@@ -51,9 +51,9 @@ class AccountSystem:
 		self.__users = {}
 		self.__passwd = p
 
-	@staticmethod
-	def open(p="passwd"):
-		a = AccountSystem(p)
+	@classmethod
+	def open(cls, p="passwd"):
+		a = cls(p)
 		if os.path.isfile(p):
 			file = open(p, "r", encoding="utf-8", newline="")
 			for line in csv.reader(file, delimiter = ","):

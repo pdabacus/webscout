@@ -28,16 +28,16 @@ class Robot:
 		self.__fell_over = f
 		self.__comment = c
 
-	@staticmethod
-	def decodeJSON(data):
+	@classmethod
+	def decodeJSON(cls, data):
 		if type(data) == type(""):
 			data = json.loads(data)
 		if len(data) < 2:
-			return Robot(0)
+			return cls(0)
 		elif len(data) < 7:
-			return Robot(data["team"], data["scouted"])
+			return cls(data["team"], data["scouted"])
 		else:
-			return Robot(
+			return cls(
 				data["team"],
 				data["scouted"],
 				data["high"],
@@ -77,9 +77,9 @@ class Match:
 		self.__red = {"1":Robot(r[0]), "2":Robot(r[1]), "3":Robot(r[2])}
 		self.__blue = {"1":Robot(b[0]), "2":Robot(b[1]), "3":Robot(b[2])}
 
-	@staticmethod
-	def decodeJSON(t, n, data):
-		m = Match(t, n, [0,0,0], [0,0,0])
+	@classmethod
+	def decodeJSON(cls, t, n, data):
+		m = cls(t, n, [0,0,0], [0,0,0])
 		if type(data) == type(""):
 			data = json.loads(data)
 		if len(data) < 2:
@@ -134,9 +134,9 @@ class Record:
 		self.__elim = {}
 		self.__fileName = f
 
-	@staticmethod
-	def decodeJSON(team, data, fileName="record.json"):
-		r = Record(team, fileName)
+	@classmethod
+	def decodeJSON(cls, team, data, fileName="record.json"):
+		r = cls(team, fileName)
 		if type(data) == type(""):
 			data = json.loads(data)
 		if len(data) < 2:
@@ -146,8 +146,8 @@ class Record:
 				r.addMatch(Match.decodeJSON(t, i, data[t][i]))
 		return r
 
-	@staticmethod
-	def open(team, fileName="record.json"):
+	@classmethod
+	def open(cls, team, fileName="record.json"):
 		data = ""
 		fileLocation = os.path.join(str(team), fileName)
 		if os.path.isfile(fileLocation):
@@ -155,7 +155,7 @@ class Record:
 			data = file.read()
 			file.close()
 
-		r = Record(team, fileName)
+		r = cls(team, fileName)
 		if len(data) < 10:
 			return r
 		if type(data) == type(""):
