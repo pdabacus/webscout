@@ -12,7 +12,7 @@ import json
 def kill(signal, frame):
 	print()
 	print("Killing Program")
-	print("Closing Socket...", end="")
+	print("Stopping Server...", end="")
 	serversock.shutdown(socket.SHUT_RDWR)
 	serversock.close()
 	print("done")
