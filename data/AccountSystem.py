@@ -25,10 +25,6 @@ class User:
 	def getName(self):
 		return self.__name
 
-	def getFile(self, f):
-		if f in self.__files:
-			return str(Record.open(self.__name, f))
-
 	def getFiles(self):
 		return self.__files
 

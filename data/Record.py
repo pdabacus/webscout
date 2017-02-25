@@ -110,6 +110,12 @@ class Match:
 	def getNum(self):
 		return self.__num
 
+	def getRobot(self, color, number):
+		if color == "red" and str(number) in self.__red:
+			return self.__red[str(number)]
+		elif color == "blue" and str(number) in self.__blue:
+			return self.__blue[str(number)]
+
 	def setRobot(self, color, number, rob):
 		if color == "red":
 			self.__red[str(number)] = rob
@@ -198,9 +204,9 @@ class Record:
 			self.__elim.pop(str(i))
 
 	def getMatch(self, t, i):
-		if t == "qual":
+		if t == "qual" and str(i) in self.__qual:
 			return self.__qual[str(i)]
-		elif t == "elim":
+		elif t == "elim" and str(i) in self.__elim:
 			return self.__elim[str(i)]
 
 	def save(self):
