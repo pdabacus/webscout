@@ -9,44 +9,68 @@ if (!in_array($orientation, array("1","2"))){
   $orientation = "1";
 }
 
-//$team
-if (getpostset("team")) {
-  $team = getpost("team");
+//$user
+if (getpostset("user")) {
+  $user = getpost("user");
 }
-if (count($team) > 6){
-  $team = "4828";
-}
-
-//$matchType
-if (getpostset("matchType")) {
-  $matchType = getpost("matchType");
-}
-if (!in_array($matchType, array("qual","elim"))){
-  $matchType = "4828";
+if (count($user) > 6){
+  $user = "4828";
 }
 
-//$matchNumber
-if (getpostset("matchNumber")) {
-  $matchNumber = getpost("matchNumber");
+//$pass
+if (getpostset("pass")) {
+  $pass = getpost("pass");
 }
-if (count($team) > 4){
-  $matchNumber = "1";
-}
-
-//$alliance
-if (getpostset("alliance")) {
-  $alliance = getpost("alliance");
-}
-if (!in_array($alliance, array("red","blue"))){
-  $alliance = "red";
+if (count($user) < 20){
+  $pass = "de3f712d1a02c5fb481a7a99b0da7fa3";
 }
 
-//$robot
-if (getpostset("robot")) {
-  $robot = getpost("robot");
+//$file
+if (getpostset("file")) {
+  $file = getpost("file");
 }
-if (count($robot) > 6){
-  $robot = "robot";
+if (count($file) < 5){
+  $file = "pitt.json";
+}
+
+//$match_type
+if (getpostset("match_type")) {
+  $match_type = getpost("match_type");
+}
+if (!in_array($match_type, array("qual","elim"))){
+  $match_type = "qual";
+}
+
+//$match_number
+if (getpostset("match_number")) {
+  $match_number = getpost("match_number");
+}
+if (count($match_number) > 4){
+  $match_number = "1";
+}
+
+//$alliance_color
+if (getpostset("alliance_color")) {
+  $alliance_color = getpost("alliance_color");
+}
+if (!in_array($alliance_color, array("red","blue"))){
+  $alliance_color = "red";
+}
+
+//$alliance_number
+if (getpostset("alliance_number")) {
+  $alliance_number = getpost("alliance_number");
+}
+if (count($alliance_number) > 6){
+  $alliance_number = "1";
+}
+
+//$robot_number
+if (getpostset("robot_number")) {
+  $robot_number = getpost("robot_number");
+}
+if (count($robot_number) > 6){
+  $robot_number = "1111";
 }
 
 ?><!DOCTYPE html>
@@ -65,11 +89,14 @@ if (count($robot) > 6){
   <script type="text/javascript">
     var main = {
       orientation: <?php echo "$orientation"; ?>,
-      team: <?php echo "$team"; ?>,
-      matchType: <?php echo "\"$matchType\""; ?>,
-      matchNumber: <?php echo "$matchNumber"; ?>,
-      alliance: <?php echo "\"$alliance\""; ?>,
-      robot: <?php echo "$robot"; ?> 
+      user: <?php echo "\"$user\""; ?>,
+      pass: <?php echo "\"$pass\""; ?>,
+      file: <?php echo "\"$file\""; ?>,
+      matchType: <?php echo "\"$match_type\""; ?>,
+      matchNumber: <?php echo "$match_number"; ?>,
+      allianceColor: <?php echo "\"$alliance_color\""; ?>,
+      allianceNumber: <?php echo "$alliance_number"; ?>,
+      robotNumber: <?php echo "$robot_number"; ?> 
     }
   </script>
     <div class="container-fluid" style="text-align: center;">

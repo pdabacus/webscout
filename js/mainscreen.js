@@ -1,5 +1,7 @@
 var main = {
-	orientation: 0
+	orientation: 0,
+	user: "4828",
+	pass: "de3f712d1a02c5fb481a7a99b0da7fa3"
 }
 
 $(document).ready(function() {
@@ -34,45 +36,56 @@ var findMatch = function() {
 		$('#select-match-modal').modal('show');
 		$("#select-match-modal-content").html('<div class="loader"></div>');
 
-// uncomment to delay GET by 1 milliseconds
+// uncomment to delay GET by 1000 milliseconds
 //setTimeout(function() {
 
-	$.get("php/get-matches.php?year=" + year, function(data) {
+	request = {
+		year: year,
+		user: main.user,
+		pass: main.pass,
+		file: "pitt.json",
+		action: "get_file"
+	};
+
+	$.get("php/get_data.php", request, function(data) {
 		var html = "";
+		var response = {};
+		var matches = {};
+
 		var matchType = "";
 		var matchNumber = 0;
+		var robot = {};
 
 		if (data != null && data.length > 10) {
-			matches = JSON.parse(data);
+			response = JSON.parse(data);
+			if (response.valid && response[request.action]) {
+				matches = JSON.parse(response.file_content);
+				html = '<h2> Team ' + request.user + '</h2>';
 
-			for (var team in matches) {
-				html += '<h2>Team ' + team + '</h2>';
-				html += '<div class="row">';
+				for (var i = 0; i < Object.keys(matches).length; i++) {
+					matchType = Object.keys(matches).reverse()[i];
 
-				for (var i = 0; i < Object.keys(matches[team]).length; i++) {
-					matchType = Object.keys(matches[team]).reverse()[i];
-
-					for (var j = 0; j < Object.keys(matches[team][matchType]).length; j++) {
-						matchNumber = Object.keys(matches[team][matchType]).reverse()[j];
-
+					for (var i = 0; i < Object.keys(matches[matchType]).length; i++) {
+						matchNumber = Object.keys(matches[matchType]).reverse()[i];
+					
 						html += '<div class="col-xs-6 col-md-4">';
-
 						html += '<h3>' + capitalize(matchType) + ' ' + matchNumber + '</h3>';
-
 						html += '<div class="match container-fluid" style="padding:0px">';
 
-						for (var alliance in matches[team][matchType][matchNumber]) {
-							html += '<div class="' + alliance + ' col-xs-6">';
-							html += '<h4>' + capitalize(alliance) + '</h4>';
+						for (var allianceColor in matches[matchType][matchNumber]) {
+							html += '<div class="' + allianceColor + ' col-xs-6">';
+							html += '<h4>' + capitalize(allianceColor) + '</h4>';
 							for (var k = 1; k <= 3; k++) {
+								robot = matches[matchType][matchNumber][allianceColor][k];
 								html += '<p onclick="scoutMatch(';
-								html += team + ',';
+								html += "'" + request.file + "',";
 								html += "'" + matchType + "',";
-								html += matchNumber + ',';
-								html += "'" + alliance + "',";
-								html += matches[team][matchType][matchNumber][alliance][k];
+								html += "'" + matchNumber + "',";
+								html += "'" + allianceColor + "',";
+								html += "'" + k + "',";
+								html += "'" + robot.team + "'";
 								html += ')">';
-								html += matches[team][matchType][matchNumber][alliance][k];
+								html += robot.team;
 								html += '</p>';
 							}
 							html += '</div>';
@@ -80,10 +93,12 @@ var findMatch = function() {
 
 						html += '</div>';
 						html += '</div>';
+
 					}
 				}
-
-				html += '</div>';
+				
+			} else {
+				html = '<div class="col-xs-12">' + errorHTML(response.error) + '</div>';
 			}
 
 		} else {
@@ -100,15 +115,19 @@ var findMatch = function() {
 	}
 }
 
-var scoutMatch = function(team, matchType, matchNumber, alliance, robot) {
+var scoutMatch = function(file, matchType, matchNumber, allianceColor, allianceNumber, robotNumber) {
 	$("#body").fadeOut(500);
 	setTimeout(function() {
 		var parameters = "orientation=" + main.orientation + "&";
-		parameters += "team=" + team + "&";
-		parameters += "matchType=" + matchType + "&";
-		parameters += "matchNumber=" + matchNumber + "&";
-		parameters += "alliance=" + alliance + "&";
-		parameters += "robot=" + robot;
+		parameters += "user=" + main.user + "&";
+		parameters += "pass=" + main.pass + "&";
+		parameters += "file=" + file + "&";
+		parameters += "match_type=" + matchType + "&";
+		parameters += "match_number=" + matchNumber + "&";
+		parameters += "alliance_color=" + allianceColor + "&";
+		parameters += "alliance_number=" + allianceNumber + "&";
+		parameters += "robot_number=" + robotNumber;
+
 		window.location.href = "app/" + year + "/scout/?" + parameters;
 	}, 500);
 }
