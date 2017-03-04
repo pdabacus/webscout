@@ -15,90 +15,102 @@ $year = checkYear($year);
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    <title><?php echo getGame($year) . " $year Scouting"; ?></title>
+    <title>WebScout Account Login</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/md5.min.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
-    <script type="text/javascript" src="js/mainscreen.js"></script>
+    <script type="text/javascript" src="login.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body id="body">
-  <script type="text/javascript">
-    var year = <?php echo "\"$year\""; ?>;
-  </script>
-
-    <!-- select team and match modal -->
+    <script type="text/javascript">
+      var year = <?php echo "\"$year\""; ?>;
+    </script>
     <div
-      id="select-match-modal"
+      id="create-account-modal"
       class="modal fade"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="Select Match">
+      aria-labelledby="Create Account">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Select Match</h4>
+            <h4 class="modal-title">Create Account</h4>
           </div>
-          <div id="select-match-modal-content" class="modal-body container-fluid">
-            <div class="loader"></div>
+          <div class="modal-body container-fluid" style="text-align: center;">
+            <!-- create account fields -->
+            <div class="row">
+              <div class="col-sm-1 col-md-2"></div>
+              <div class="col-xs-12 col-sm-10 col-md-8">
+                <input id="newuser" class="textinput" type="number" placeholder="Team Number"/>
+                <br/>
+                <input id="newpass1" class="textinput" type="password" placeholder="New Password"/>
+                <br/>
+                <input id="newpass2" class="textinput" type="password" placeholder="Repeat Password"/>
+              </div>
+              <div class="col-sm-1 col-md-2"></div>
+            </div>
+            <!-- create account button-->
+            <div class="row">
+              <div class="col-xs-2 col-md-4"></div>
+              <div class="col-xs-8 col-md-4">
+                <div id="create-account-error"></div>
+                <div class="button" onclick="createAccount()">
+                  <div>Create Account</div>
+                </div>
+              </div>
+              <div class="col-xs-2 col-md-4"></div>
+            </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" onclick="findMatch()">Refresh</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <!-- left spacer-->
+    <div class="container-fluid" style="text-align: center;">
+      <!-- left spacer -->
       <div class="col-sm-1 col-md-2"></div>
       <!-- main page -->
       <div id="page" class="fadein col-xs-12 col-sm-10 col-md-8">
-        <!-- title -->
-        <a href="./"><h1><?php echo getGame($year) . " $year Scouting"; ?></h1></a>
+        <!-- -->
+        <h1>WebScout Account Login</h1>
         <hr/>
-        <!-- check if javascript enabled -->
-        <h3 id="check-js">Please Enable JavaScript</h3>
-        <!-- pick orientation -->
-        <h3>Choose Orientation</h3>
+        <!-- signin fields -->
         <div class="row">
           <div class="col-sm-1 col-md-2"></div>
           <div class="col-xs-12 col-sm-10 col-md-8">
-            <img
-              id="orientation1"
-              class="orientation-img"
-              src=<?php echo "\"app/$year/img/field/field.png\""; ?> 
-              onclick="setOrientation(1)"/>
+            <input id="user" class="textinput" type="number" placeholder="Team Number"/>
             <br/>
-            <img
-              id="orientation2"
-              class="orientation-img"
-              src=<?php echo "\"app/$year/img/field/field.png\""; ?> 
-              onclick="setOrientation(2)">
+            <input id="pass" class="textinput" type="password" placeholder="Password"/>
           </div>
           <div class="col-sm-1 col-md-2"></div>
         </div>
-
-        <!-- start scouting button -->
+        <!-- sign in button-->
         <div class="row">
-          <div class="col-xs-12">
-            <div id="scout-match-error"></div>
-            <div class="button" onclick="findMatch()">
-              <div>Scout Match</div>
+          <div class="col-xs-2 col-md-4"></div>
+          <div class="col-xs-8 col-md-4">
+            <div id="sign-in-error"></div>
+            <div class="button" onclick="signIn()">
+              <div>Sign In</div>
             </div>
           </div>
+          <div class="col-xs-2 col-md-4"></div>
         </div>
         <hr/>
-        <!-- start hub button -->
+        <!-- create account button-->
         <div class="row">
-          <div class="col-xs-12">
-            <div class="button" onclick="startHub()">
-              <div>Hub</div>
+          <div class="col-xs-2 col-md-4"></div>
+          <div class="col-xs-8 col-md-4">
+            <div class="button" data-toggle="modal" data-target="#create-account-modal">
+              <div>Create Account</div>
             </div>
           </div>
+          <div class="col-xs-2 col-md-4"></div>
         </div>
         <hr/>
         <!-- footer -->

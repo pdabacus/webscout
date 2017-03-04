@@ -8,6 +8,14 @@ var transitionElement = function(elem, html, time) {
 		}, time);
 }
 
+var redirect = function(location, params) {
+		var form = '';
+		$.each(params, function(key, value) {
+			form += '<input type="hidden" name="' + key + '" value="' + value + '">';
+		});
+		$('<form action="' + location + '" method="post">' + form + '</form>').appendTo('body').submit();
+}
+
 var errorHTML = function(msg) {
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }

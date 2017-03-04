@@ -1,9 +1,3 @@
-var main = {
-	orientation: 0,
-	user: "4828",
-	pass: "de3f712d1a02c5fb481a7a99b0da7fa3"
-}
-
 $(document).ready(function() {
 	$("#check-js").hide();
 	$(".fadein").fadeIn(500);
@@ -47,7 +41,7 @@ var findMatch = function() {
 		action: "get_file"
 	};
 
-	$.get("php/get_data.php", request, function(data) {
+	$.get("../php/get_data.php", request, function(data) {
 		var html = "";
 		var response = {};
 		var matches = {};
@@ -55,8 +49,8 @@ var findMatch = function() {
 		var matchType = "";
 		var matchNumber = 0;
 		var robot = {};
-
-		if (data != null && data.length > 10) {
+		
+		if (data.length > 10) {
 			response = JSON.parse(data);
 			if (response.valid && response[request.action]) {
 				matches = JSON.parse(response.file_content);
@@ -118,23 +112,24 @@ var findMatch = function() {
 var scoutMatch = function(file, matchType, matchNumber, allianceColor, allianceNumber, robotNumber) {
 	$("#body").fadeOut(500);
 	setTimeout(function() {
-		var parameters = "orientation=" + main.orientation + "&";
-		parameters += "user=" + main.user + "&";
-		parameters += "pass=" + main.pass + "&";
-		parameters += "file=" + file + "&";
-		parameters += "match_type=" + matchType + "&";
-		parameters += "match_number=" + matchNumber + "&";
-		parameters += "alliance_color=" + allianceColor + "&";
-		parameters += "alliance_number=" + allianceNumber + "&";
-		parameters += "robot_number=" + robotNumber;
-
-		window.location.href = "app/" + year + "/scout/?" + parameters;
+		var parameters = {
+			orientation: main.orientation,
+			user: main.user,
+			pass: main.pass,
+			file: file,
+			match_type: matchType,
+			match_number: matchNumber,
+			alliance_color: allianceColor,
+			alliance_number: allianceNumber,
+			robot_number: robotNumber
+		}
+		redirect(year + "/scout/", parameters);
 	}, 500);
 }
 
 var startHub = function() {
 	$("#body").fadeOut(500);
 	setTimeout(function() {
-		window.location.href = "app/" + year + "/hub/";
+		redirect(year + "/hub/", {user: main.user, pass: main.pass});
 	}, 500);
 }

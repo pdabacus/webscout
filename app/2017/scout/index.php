@@ -13,7 +13,7 @@ if (!in_array($orientation, array("1","2"))){
 if (getpostset("user")) {
   $user = getpost("user");
 }
-if (count($user) > 6){
+if (count($user) < 2 || 6 < count($user)){
   $user = "4828";
 }
 
@@ -45,7 +45,7 @@ if (!in_array($match_type, array("qual","elim"))){
 if (getpostset("match_number")) {
   $match_number = getpost("match_number");
 }
-if (count($match_number) > 4){
+if (count($match_number) < 1 || 4 < count($match_number)){
   $match_number = "1";
 }
 
@@ -61,7 +61,7 @@ if (!in_array($alliance_color, array("red","blue"))){
 if (getpostset("alliance_number")) {
   $alliance_number = getpost("alliance_number");
 }
-if (count($alliance_number) > 6){
+if (count($alliance_number) != 1){
   $alliance_number = "1";
 }
 
@@ -69,7 +69,7 @@ if (count($alliance_number) > 6){
 if (getpostset("robot_number")) {
   $robot_number = getpost("robot_number");
 }
-if (count($robot_number) > 6){
+if (count($robot_number) < 2 || 6 < count($robot_number)){
   $robot_number = "1111";
 }
 
