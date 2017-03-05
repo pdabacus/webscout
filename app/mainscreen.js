@@ -27,7 +27,7 @@ var findMatch = function() {
 		$("#scout-match-error").html(error);
 
 	} else {
-		$('#select-match-modal').modal('show');
+		$("#select-match-modal").modal("show");
 		$("#select-match-modal-content").html('<div class="loader"></div>');
 
 // uncomment to delay GET by 1000 milliseconds

@@ -89,19 +89,19 @@ login($user, $pass, "../../../");
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">
   </head>
   <body id="body">
-  <script type="text/javascript">
-    var main = {
-      orientation: <?php echo "$orientation"; ?>,
-      user: <?php echo "\"$user\""; ?>,
-      pass: <?php echo "\"$pass\""; ?>,
-      file: <?php echo "\"$file\""; ?>,
-      matchType: <?php echo "\"$match_type\""; ?>,
-      matchNumber: <?php echo "$match_number"; ?>,
-      allianceColor: <?php echo "\"$alliance_color\""; ?>,
-      allianceNumber: <?php echo "$alliance_number"; ?>,
-      robotNumber: <?php echo "$robot_number"; ?> 
-    }
-  </script>
+    <script type="text/javascript">
+      var main = {
+        orientation: <?php echo "$orientation"; ?>,
+        user: <?php echo "\"$user\""; ?>,
+        pass: <?php echo "\"$pass\""; ?>,
+        file: <?php echo "\"$file\""; ?>,
+        matchType: <?php echo "\"$match_type\""; ?>,
+        matchNumber: <?php echo "$match_number"; ?>,
+        allianceColor: <?php echo "\"$alliance_color\""; ?>,
+        allianceNumber: <?php echo "$alliance_number"; ?>,
+        robotNumber: <?php echo "$robot_number"; ?> 
+      }
+    </script>
     <div class="container-fluid" style="text-align: center;">
       <div class="col-xs-1 col-sm-2 col-md-3"></div>
       <div class="fadein col-xs-10 col-sm-8 col-md-6" style="margin: 40px auto">

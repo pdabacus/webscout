@@ -33,7 +33,12 @@ login($user, $pass, "../../../");
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">
   </head>
   <body id="body">
-
+    <script type="text/javascript">
+      var main = {
+        user: <?php echo "\"$user\""; ?>,
+        pass: <?php echo "\"$pass\""; ?> 
+      }
+    </script>
     <div
       id="create-match-modal"
       class="modal fade"
@@ -108,10 +113,10 @@ login($user, $pass, "../../../");
               <div class="col-xs-1 col-sm-2 col-md-3"></div>
             </div>
             <hr/>
-            <!-- create account button-->
+            <!-- create match button-->
             <div class="row">
+              <div id="create-match-error"></div>
               <div class="col-xs-2 col-md-4"></div>
-              <div id="create-account-error"></div>
               <div class="col-xs-8 col-md-4">
                 <div class="button" onclick="createMatch()">
                   <div>Create Match</div>
@@ -127,29 +132,44 @@ login($user, $pass, "../../../");
       </div>
     </div>
 
-    <div class="container-fluid">
-      <!-- left spacer -->
-      <div class="col-sm-1 col-md-2"></div>
-      <div id="page" class="fadein col-xs-12 col-sm-10 col-md-8">
-        <h1>Steamworks 2017 Scouting Hub</h1>
-        <!-- create match -->
-        <div class="row">
-          <div class="col-xs-3"></div>
-          <div class="col-xs-6">
-            <div class="button" data-toggle="modal" data-target="#create-match-modal">
-              <div>Create Match</div>
+    <div class="container">
+      <div id="page" class="fadein col-xs-12 col-md-11">
+        <div class="container-fluid" style="padding: 0px;">
+          <!-- matches list -->
+          <div id="navbar" class="pre-scrollable col-xs-3">
+            <h3>Matches</h3>
+            <hr/>
+            <h4>Qual</h4>
+            <div id="qual"></div>
+            <hr/>
+            <h4>Elim</h4>
+            <div id="elim"></div>
+          </div>
+          <!-- main page -->
+          <div class="col-xs-9">
+            <h1>Steamworks 2017 Scouting Hub</h1>
+            <hr/>
+            <div id="match-container" class="container-fluid"></div>
+            <!-- create match -->
+            <div class="row">
+              <div class="col-xs-3"></div>
+              <div class="col-xs-6">
+                <div class="button" data-toggle="modal" data-target="#create-match-modal">
+                  <div>Create Match</div>
+                </div>
+              </div>
+              <div class="col-xs-3"></div>
             </div>
           </div>
-          <div class="col-xs-3"></div>
         </div>
-        <hr/>
+        <hr style="margin-top: 0px"/>
         <!-- footer -->
         <div id="footer"">
           <div>Copyright &copy; <?php echo date("Y"); ?> Swift Creek Robotics</div>
         </div>
       </div>
       <!-- right spacer -->
-      <div class="col-sm-1 col-md-2"></div>
+      <div class="col-md-1"></div>
     </div>
 
   </body>
