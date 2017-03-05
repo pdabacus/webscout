@@ -1,4 +1,16 @@
 $(document).ready(function() {
+	$("#pass").keypress(function(e) {
+		if(e.which == 10 || e.which == 13) {
+			signIn();
+		}
+	});
+
+	$("#newpass2").keypress(function(e) {
+		if(e.which == 10 || e.which == 13) {
+			createAccount();
+		}
+	});
+
 	$(".fadein").fadeIn(500);
 });
 

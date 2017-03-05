@@ -43,15 +43,15 @@ $year = checkYear($year);
           <div class="modal-body container-fluid" style="text-align: center;">
             <!-- create account fields -->
             <div class="row">
-              <div class="col-sm-1 col-md-2"></div>
-              <div class="col-xs-12 col-sm-10 col-md-8">
+              <div class="col-xs-1 col-sm-2 col-md-3"></div>
+              <div class="col-xs-10 col-sm-8 col-md-6">
                 <input id="newuser" class="textinput" type="number" placeholder="Team Number"/>
                 <br/>
                 <input id="newpass1" class="textinput" type="password" placeholder="New Password"/>
                 <br/>
                 <input id="newpass2" class="textinput" type="password" placeholder="Repeat Password"/>
               </div>
-              <div class="col-sm-1 col-md-2"></div>
+              <div class="col-xs-1 col-sm-2 col-md-3"></div>
             </div>
             <!-- create account button-->
             <div class="row">
@@ -82,13 +82,12 @@ $year = checkYear($year);
         <hr/>
         <!-- signin fields -->
         <div class="row">
-          <div class="col-sm-1 col-md-2"></div>
-          <div class="col-xs-12 col-sm-10 col-md-8">
+          <div class="col-xs-1 col-sm-2 col-md-3"></div>
+          <div class="col-xs-10 col-sm-8 col-md-6">
             <input id="user" class="textinput" type="number" placeholder="Team Number"/>
-            <br/>
             <input id="pass" class="textinput" type="password" placeholder="Password"/>
           </div>
-          <div class="col-sm-1 col-md-2"></div>
+          <div class="col-xs-1 col-sm-2 col-md-3"></div>
         </div>
         <!-- sign in button-->
         <div class="row">

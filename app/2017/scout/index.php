@@ -1,5 +1,6 @@
 <?php
 include("../../../php/get_post_utils.php");
+include("../../../php/login.php");
 
 //$orientation
 if (getpostset("orientation")) {
@@ -13,24 +14,24 @@ if (!in_array($orientation, array("1","2"))){
 if (getpostset("user")) {
   $user = getpost("user");
 }
-if (count($user) < 2 || 6 < count($user)){
-  $user = "4828";
+if (strlen($user) < 2 || 6 < strlen($user)){
+  $user = "1111";
 }
 
 //$pass
 if (getpostset("pass")) {
   $pass = getpost("pass");
 }
-if (count($user) < 20){
-  $pass = "de3f712d1a02c5fb481a7a99b0da7fa3";
+if (strlen($pass) < 20){
+  $pass = "lololol";
 }
 
 //$file
 if (getpostset("file")) {
   $file = getpost("file");
 }
-if (count($file) < 5){
-  $file = "pitt.json";
+if (strlen($file) < 5){
+  $file = "record.json";
 }
 
 //$match_type
@@ -45,7 +46,7 @@ if (!in_array($match_type, array("qual","elim"))){
 if (getpostset("match_number")) {
   $match_number = getpost("match_number");
 }
-if (count($match_number) < 1 || 4 < count($match_number)){
+if (strlen($match_number) < 1 || 4 < strlen($match_number)){
   $match_number = "1";
 }
 
@@ -61,7 +62,7 @@ if (!in_array($alliance_color, array("red","blue"))){
 if (getpostset("alliance_number")) {
   $alliance_number = getpost("alliance_number");
 }
-if (count($alliance_number) != 1){
+if (strlen($alliance_number) != 1){
   $alliance_number = "1";
 }
 
@@ -69,9 +70,11 @@ if (count($alliance_number) != 1){
 if (getpostset("robot_number")) {
   $robot_number = getpost("robot_number");
 }
-if (count($robot_number) < 2 || 6 < count($robot_number)){
-  $robot_number = "1111";
+if (strlen($robot_number) < 2 || 6 < strlen($robot_number)){
+  $robot_number = "9999";
 }
+
+login($user, $pass, "../../../");
 
 ?><!DOCTYPE html>
 <html>

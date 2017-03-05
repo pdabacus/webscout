@@ -7,17 +7,26 @@ $year = date("Y");
 $user = "";
 $pass = "";
 
+//$year
 if (getpostset("year")) {
   $year = getpost("year");
 }
 $year = checkYear($year);
 
+//$user
 if (getpostset("user")) {
   $user = getpost("user");
 }
+if (strlen($user) < 2 || 6 < strlen($user)){
+  $user = "1111";
+}
 
+//$pass
 if (getpostset("pass")) {
   $pass = getpost("pass");
+}
+if (strlen($pass) < 20){
+  $pass = "lololol";
 }
 
 login($user, $pass, "../");
