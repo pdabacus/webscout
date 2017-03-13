@@ -17,6 +17,9 @@ var redirect = function(location, params) {
 }
 
 var errorHTML = function(msg) {
+	if (msg == "" || msg == null) {
+		return "";
+	}
 	return '<h4 style="color: #FF3344">ERROR: ' + msg + '</h4>';
 }
 

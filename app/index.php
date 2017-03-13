@@ -109,21 +109,30 @@ login($user, $pass, "../");
 
         <!-- start scouting button -->
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-sm-1 col-md-2"></div>
+          <div class="col-xs-12 col-sm-10 col-md-8">
             <div id="scout-match-error"></div>
             <div class="button" onclick="findMatch()">
               <div>Scout Match</div>
             </div>
           </div>
+          <div class="col-sm-1 col-md-2"></div>
         </div>
         <hr/>
         <!-- start hub button -->
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-sm-1 col-md-2"></div>
+          <div class="col-xs-6 col-sm-5 col-md-4">
             <div class="button" onclick="startHub()">
-              <div>Hub</div>
+              <div>Open Hub</div>
             </div>
           </div>
+          <div class="col-xs-6 col-sm-5 col-md-4">
+            <div class="button" onclick="startHub()">
+              <div>View Data</div>
+            </div>
+          </div>
+          <div class="col-sm-1 col-md-2"></div>
         </div>
         <hr/>
         <!-- footer -->
